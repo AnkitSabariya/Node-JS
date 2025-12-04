@@ -100,12 +100,10 @@ app.delete("/delete/:id", async (req, res) => {
 
   const deleteuser = await User.findByIdAndDelete(id);
 
-  if (!deleteuser) {
-    return res.status(401).json({ message: "User Not Found" });
-  }
+  
   res
     .status(201)
-    .json({ success: true, message: "Update Successfully.....", deleteuser });
+    .json({ success: true, message: "Delete Successfully.....", deleteuser });
 });
 app.listen(5000, () => {
   console.log("Server running on port 5000");
